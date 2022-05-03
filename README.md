@@ -8,11 +8,10 @@ sende inn til Vipps, og hva dere kan bruke i svaret som kommer tilbake.
 OpenID Connect er den mest brukte standarden for identifisering av brukere på
 internett. Den gir oss muligheten til å sende brukeren videre til en tredjepart
 som utfører autentiseringen, og som så returnerer brukeren til oss med informasjonen
-vi trenger. Standarden har også mange andre bruksområder, men disse vil vi ikke
-gå inn på i dag.
+vi trenger.
 
 ## Installasjon av det du trenger til workshopen
-Sjekk om du har Python 3 installert, kan gjøres med følgende kommando i en kommando linje:
+Sjekk om du har Python 3 installert, dette kan gjøres med følgende kommando:
 ```
 python --version
 ```
@@ -22,30 +21,41 @@ I dette tilfellet så kan du kjøre følgende kommando for å sjekke versjon:
 ```
 python3 --version
 ```
-Dersom dette gjelder deg, så må du også kjøre ```pip3``` istedenfor ```pip``` i de kommende kommandoene.
+Dersom dette gjelder deg, så må du også kjøre ```pip3``` istedenfor ```pip``` i de neste kommandoene.
 
 Dersom du ikke har Python 3 installert så kan du følge denne guiden, [Python 3 Installasjon og Setup Guide](https://realpython.com/installing-python/).
 Nyeste Python 3 versjon kan du finne [her](https://www.python.org/downloads/).
 
+Når du har fått installert Python 3 så kan du kjøre følgende kommando for å installere alle pakkene denne workshopen trenger.
+```
+pip install -r requirements.txt
+```
 ## Hvordan kjøre opp appen
 1. Hent ned repoet fra git
 
 ```
-git clone "url"
+git clone git@github.com:kantega/oidc-workshop-public.git
 ```
 
-2. Start en terminal i oidc client mappa
+2. Start en terminal og gå inn i oidc client mappa
 ```
 cd oidc-workshop/oidc-client/
 ```
-3. Installer alle pakkene denne workshopen trenger, husk å bruk ```pip3``` dersom du bruker ```python3``` for å kjøre applikasjonen.
-```
-pip install -r requirements.txt
-```
-4. Start appen
+3. Start applikasjonen
 ```
 python manage.py runserver
 ```
+
+## Hvordan gjøre endringer i koden
+Gjennom denne workshopen så skal dere gjøre endringer i filen [oidc_service.py](oidc-client/core/oidc_service.py) 
+og dere vil finne nyttige verdier i filen [variables.py](oidc-client/core/variables.py).
+
+For å gjøre kodeendringer kan dere bruke en valgfri texteditor, men om dere vil prøve noe nytt så kan vi anbefale:
+* [PyCharm Community](https://www.jetbrains.com/pycharm)
+* [VS Code](https://code.visualstudio.com/)
+
+Begge desse teksteditorene har mulighet for å kjøre koden, 
+debugge koden og kan gi dere hjelp med tilgjengelige metoder underveis.
 
 ## Oppgaver
 Oppgavene finner dere ved å starte opp applikasjonen.
@@ -60,8 +70,5 @@ er nå har den kun støtte for at en bruker autentiserer seg om gangen.
 Hvordan kan vi utvide tjenesten for å støtte at flere brukere logger seg på
 samtidig?
 
-Hint-1:
+Hint:
 Hvordan kan dere gjenkjenne brukerne nå de kommer tilbake fra Vipps?
-
-Hint-2:
-MMMMMmmmm KAKER!
