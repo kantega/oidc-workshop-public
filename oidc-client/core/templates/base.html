@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>OIDC workshop</title>
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column h-100">
+    <header>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg bg-kantega-blue">
+            <div class="container px-lg-0">
+                <a class="navbar-kantega-logo" href="https://www.kantega.no/" target="_blank">
+                    <img src="/static/assets/kantega_logo_hvit.svg" alt="Logo hvit" width="130" height="54" class="img-top">
+                    <img src="/static/assets/kantega_logo_roed.svg" alt="Logo roed" width="130" height="54" class="img-hover">
+                </a>
+                <a class="btn btn-kantega-menu btn-lg" href="/">Restart</a>
+            </div>
+        </nav>
+    </header>
+    <!-- Section-->
+    <main class="flex-shrink-0">
+        <section class="py-5">
+            <div class="container px-lg-5">
+                <div class="mb-5">
+                    <div class="card border-secondary h-100">
+                        <div class="card-body text-center p-4 pt-0 pt-lg-0">
+                            <div class="feature bg-kantega-blue text-white rounded-3 mb-4 mt-n4"><i
+                                    class="bi bi-info"></i></div>
+                            <div class="m-4 m-lg-5">
+                                {% block info %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-lg-5">
+                <div class="mb-5">
+                    <div class="card border-secondary h-100">
+                        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                            <div class="feature bg-kantega-blue text-white rounded-3 mb-4 mt-n4"><i
+                                    class="bi bi-code"></i></div>
+                            <div class="m-4 m-lg-5">
+                                {% block body %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer-->
+
+    <footer class="footer mt-auto py-3 bg-kantega-blue">
+        <div class="d-flex justify-content-between container px-lg-0 text-start">
+            <span class="text-muted">Workshop by Kantega</span>
+            <span class="text-muted">Orgnr. 985815534</span>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/static/js/scripts.js"></script>
+</body>
+
+</html>

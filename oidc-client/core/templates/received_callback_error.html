@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block info %}
+<h1 class="display-5 fw-bold">Callback feilet</h1>
+<div class="fs-3 text-start">
+    Noe gikk galt under innlogging, se respons fra Vipps under og gå videre.
+</div>
+{% endblock %}
+{% block body %}
+<h1 class="display-5 fw-bold">Redirect</h1>
+<div class="container px-lg-5">
+    <div class="card bg-light border-top h-100">
+        <div class="card-body text-center">
+            <pre class="fs-6 fw-bold text-start">Error:</pre>
+            <pre class="fs-6 text-start">{{ error }}</pre>
+            <pre class="fs-6 fw-bold text-start">Error forklaring:</pre>
+            <pre class="fs-6 text-start">{{ error_description }}</pre>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <a class="btn btn-kantega btn-lg" href="create-session">Gå tilbake til første steg</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block info %}
+<h1 class="display-5 fw-bold">OIDC workshop</h1>
+<div class="fs-3 text-start">
+    <p>
+        I denne workshopen skal vi logge inn med Vipps logg inn og hente brukerinformasjon, og til dette kommer vi til å
+        bruke oidc-standarden.
+        <br>Det vil bli litt koding og en hel del detektivarbeid for å finne ut
+        hva dere skal sende med av informasjon til Vipps.
+    </p>
+
+    <p>
+        Her er noen nyttige og mindre nyttige lenker som kanskje kan hjelpe dere på vei.
+        <br><a href="https://openid.net/specs/openid-connect-core-1_0.html" target="_blank">OpenID Connect incorporating
+        errata</a>
+        <br><a href="https://datatracker.ietf.org/doc/html/rfc6749" target="_blank">RFC6749</a>
+        <br><a href="https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api" target="_blank">Vipps
+        Login dokumentasjon</a>
+    </p>
+    <p>
+        Gjennom denne workshopen vil dere jobbe med filen:
+        <br>&emsp;<i>oidc-workshop.oidc-client.core.oidc_service.py</i>
+    </p>
+    <p>
+        og dere finne en del nyttige verdier i filen:
+        <br>&emsp;<i>oidc-workshop.oidc-client.core.variables.py</i>
+    </p>
+    <p>Og ikke nøl med å spørre oss om hjelp!</p>
+</div>
+{% endblock %}
+{% block body %}
+<a class="btn btn-kantega btn-lg" href="create-session">Start workshop</a>
+{% endblock %}

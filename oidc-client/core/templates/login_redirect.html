@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block info %}
+<h1 class="display-5 fw-bold">Første steg</h1>
+<div class="fs-3 text-start">
+    For å starte en pålogging må brukeren sendes til OIDC tjenesten.
+    <br>For at OIDC tjenesten skal kunne håndtere requesten så må visse parametre legges til en url før brukeren
+    vidersendes.
+    <br>Det første dere må gjøre er å finne dataen dere trenger for å bygge opp denne url-en.
+    <br><br>Denne oppgaven løses i <i>oidc_service#create_oidc_session</i>
+</div>
+{% endblock %}
+{% block body %}
+<h1 class="display-5 fw-bold">Redirect</h1>
+<div class="container px-lg-5">
+    <div class="card bg-light border-top h-100">
+        <div class="card-body text-center">
+            <pre class="fs-6 fw-bold text-start">Authentication url:</pre>
+            <pre class="fs-6 text-start">{{ url }}</pre>
+            <pre class="fs-6 fw-bold text-start">Params:</pre>
+            <pre class="fs-6 text-start">{{ params }}</pre>
+            <pre class="fs-6 fw-bold text-start">Redirect url:</pre>
+            <pre class="fs-6 text-start">{{ redirect_url }}</pre>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <a class="btn btn-kantega btn-lg" href="{{ redirect_url }}">Videresend bruker til Vipps</a>
+</div>
+
+{% endblock %}

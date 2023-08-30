@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block info %}
+<h1 class="display-5 fw-bold">Sweet!</h1>
+<div class="fs-3 text-start">
+    <br>Du har fått byttet autorisasjonskoden inn i et access token.
+    <br>Nå er spørsmålet hvordan kan du bruke dette til å hente informasjon om brukeren?
+    <br><br>Denne oppgaven løses i <i>oidc_service#get_userinfo</i>
+</div>
+{% endblock %}
+{% block body %}
+<h1 class="display-5 fw-bold">Response</h1>
+
+<div class="container px-lg-5">
+    <div class="card bg-light border-top h-100">
+        <div class="card-body text-center">
+            <pre class="fs-6 text-start"><strong>Response code: </strong>{{ response.status_code }}</pre>
+            <pre class="fs-6 fw-bold text-start">Body:</pre>
+            <pre class="fs-6 text-start">{{ json }}</pre>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <a class="btn btn-kantega btn-lg" href="/get-userinfo?access_token={{ access_token }}">Hent userinfo</a>
+</div>
+{% endblock %}

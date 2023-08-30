@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block info %}
+<h1 class="display-5 fw-bold">Suksess!</h1>
+<div class="fs-3 text-start">
+    <br>Brukeren har returnert fra OIDC-serveren til Vipps med en autorisasjonskode.
+    <br>Neste steg er å finne ut hvordan dere kan bytte denne inn i et access token.
+    <br><br>Denne oppgaven løses i <i>oidc_service#get_access_token</i>
+</div>
+{% endblock %}
+{% block body %}
+<h1 class="display-5 fw-bold">Response</h1>
+<div class="container px-lg-5">
+    <div class="card bg-light border-top h-100">
+        <div class="card-body text-center">
+            <pre class="fs-6 fw-bold text-start">Query params:</pre>
+            <pre class="fs-6 text-start">{{ formatted_params }}</pre>
+        </div>
+    </div>
+</div>
+
+<div class="card-body">
+    <a class="btn btn-kantega btn-lg" href="/get-access-token?code={{ code }}">Hent access token</a>
+</div>
+{% endblock %}
