@@ -11,6 +11,19 @@ from django.shortcuts import render
 # og deretter brukes slik
 # variabel = VARIABEL_NAVN
 ###
+##------------ Løsning ------------##
+from .variables import CLIENT_ID
+from .variables import CLIENT_SECRET
+from .variables import GRANT_TYPE
+from .variables import REDIRECT_URL
+from .variables import RESPONSE_TYPE
+from .variables import WELL_KNOWN_URL
+##---------------------------------##
+
+##------------ Løsning ------------##
+class WellKnown:
+    data = dict()
+##---------------------------------##
 
 ###
 # For å starte en pålogging må brukeren sendes til OIDC tjenesten.
@@ -21,6 +34,18 @@ def create_oidc_session(request):
 
     url = ""
     params = {}
+
+    ##------------ Løsning ------------##
+    fetch_well_known()
+    url = WellKnown.data['authorization_endpoint']
+
+    params['client_id'] = CLIENT_ID
+    params['response_type'] = RESPONSE_TYPE
+    params['redirect_uri'] = REDIRECT_URL
+
+    params['state'] = str(uuid.uuid4())
+    params['scope'] = 'openid name'
+    ##---------------------------------##
 
     redirect_url = url + '?' + urllib.parse.urlencode(params)
 
@@ -40,6 +65,17 @@ def get_access_token(request):
     url = ""
     body = {}
     basic_auth = ""
+
+    ##------------ Løsning ------------##
+    url = WellKnown.data['token_endpoint']
+
+    body = dict()
+    body['code'] = authorization_code
+    body['grant_type'] = GRANT_TYPE
+    body['redirect_uri'] = REDIRECT_URL
+
+    basic_auth = (CLIENT_ID, CLIENT_SECRET)
+    ##---------------------------------##
 
     response = requests.post(url, data=body, auth=basic_auth)
     formatted_json = prettify_body_if_json(response)
@@ -62,6 +98,12 @@ def get_userinfo(request):
 
     url = ""
     headers = {}
+
+    ##------------ Løsning ------------##
+    url = WellKnown.data['userinfo_endpoint']
+    headers = dict()
+    headers['authorization'] = 'Bearer ' + access_token
+    ##---------------------------------##
 
     response = requests.get(url, headers=headers)
     formatted_json = prettify_body_if_json(response)
@@ -110,3 +152,11 @@ def has_json_body(response):
 # Metode for å gjøre data objekter, json, dict, osv, meir lesbare i en nettleser
 def prettify_data(data):
     return json.dumps(data, indent=4, sort_keys=True, ensure_ascii=False)
+
+
+##------------ Løsning ------------##
+def fetch_well_known():
+    if not bool(WellKnown.data):
+        WellKnown.data = requests.get(WELL_KNOWN_URL).json()
+    return WellKnown.data
+##---------------------------------##
